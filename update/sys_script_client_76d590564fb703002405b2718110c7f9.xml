@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>Client script to get the number of employees from the Script Include by passing the name of the department as the parameter.</description>
+        <field>u_department_name</field>
+        <global>true</global>
+        <messages/>
+        <name>Employee count in a Department</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+if (isLoading || newValue === '') {
+      return;
+   }
+	
+	//get the server script to run here by calling the script -> a script-include by sending it as param the department name
+	var getEmpCount = new GlideAjax('empCountGenerator');
+	
+	//call1
+	getEmpCount.addParam('sysparm_name','getCount');
+	getEmpCount.addParam('sysparm_deptID',g_form.getValue('u_department_name'));
+	getEmpCount.getXML(populateCountField);
+	
+	//call2
+	var getEmpCount2 = new GlideAjax('empCountGenerator');
+	getEmpCount2.addParam('sysparm_name','getList');
+	getEmpCount2.addParam('sysparm_deptID',g_form.getValue('u_department_name'));
+	getEmpCount2.getXML(populateListField);
+	
+    function populateCountField(response){
+		var countFromSI = response.responseXML.documentElement.getAttribute("answer");
+		g_form.clearValue('u_no_of_emps');
+		g_form.setValue('u_no_of_emps',countFromSI);
+	}
+	function populateListField(response){
+		var listOfEmps = response.responseXML.documentElement.getAttribute("answer");
+		g_form.setValue('u_list_of_emps',listOfEmps);
+	}
+   
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-01-23 14:11:46</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>76d590564fb703002405b2718110c7f9</sys_id>
+        <sys_mod_count>13</sys_mod_count>
+        <sys_name>Employee count in a Department</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Corporate" source="x_185077_corporate">a7ebf7c24f3703002405b2718110c77f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Corporate">a7ebf7c24f3703002405b2718110c77f</sys_scope>
+        <sys_update_name>sys_script_client_76d590564fb703002405b2718110c7f9</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-01-24 07:42:17</sys_updated_on>
+        <table>x_185077_corporate_employee</table>
+        <type>onChange</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

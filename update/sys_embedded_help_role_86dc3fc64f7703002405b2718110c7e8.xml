@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_embedded_help_role">
+    <sys_embedded_help_role action="INSERT_OR_UPDATE">
+        <order>1000</order>
+        <role display_value="x_185077_corporate.department_user" name="x_185077_corporate.department_user">8adc7b064ff303002405b2718110c7c2</role>
+        <sys_class_name>sys_embedded_help_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-01-23 11:41:51</sys_created_on>
+        <sys_id>86dc3fc64f7703002405b2718110c7e8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>8adc7b064ff303002405b2718110c7c2</sys_name>
+        <sys_package display_value="Corporate" source="x_185077_corporate">a7ebf7c24f3703002405b2718110c77f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Corporate">a7ebf7c24f3703002405b2718110c77f</sys_scope>
+        <sys_update_name>sys_embedded_help_role_86dc3fc64f7703002405b2718110c7e8</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-01-23 11:41:51</sys_updated_on>
+    </sys_embedded_help_role>
+</record_update>

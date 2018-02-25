@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Employee" max_length="40" name="x_185077_corporate_employee" type="collection">
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element label="Department" mandatory="true" max_length="32" name="u_department_name" reference="x_185077_corporate_department" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Employee name" mandatory="true" max_length="50" name="u_employee_name" type="string"/>
+        <element attributes="no_sort=true,slushbucket_ref_no_expand=true" label="List of Employees" max_length="1024" name="u_list_of_emps" read_only="true" type="glide_list"/>
+        <element default="0" label="Number of Employees" max_length="40" name="u_no_of_emps" type="integer"/>
+        <index name="index">
+            <element name="u_department_name"/>
+        </index>
+    </element>
+</database>
